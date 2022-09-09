@@ -3,6 +3,7 @@ const commentSchema = mongoose.Schema({
   commentid: {
     type: String,
     unique: true,
+    require: true,
   },
   feedid: {
     type: String,
@@ -22,6 +23,7 @@ const commentSchema = mongoose.Schema({
   },
   date: {
     type: Date,
+    default: Date.now,
   },
 });
 

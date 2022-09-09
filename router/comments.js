@@ -17,7 +17,7 @@ router.post("/addcomment", async (req, res) => {
     const response = await tempComment.save();
     res.status(201).json(response);
   } catch (err) {
-    res.status(400), json(err);
+    res.status(400).json(err);
   }
 });
 
@@ -25,7 +25,7 @@ router.post("/addcomment", async (req, res) => {
 router.get("/allcomments", async (req, res) => {
   try {
     const response = await Comment.find();
-    res.status(201).json(response);
+    res.status(200).json(response);
   } catch (err) {
     res.status(400).json(err);
   }
