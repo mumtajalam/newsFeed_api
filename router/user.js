@@ -34,7 +34,7 @@ router.get("/alluser", async (req, res) => {
 router.post("/login", async (req, res) => {
   const tempEmail = req.body.email;
   const temppassword = req.body.password;
-  console.log(tempEmail, temopassword);
+  console.log(tempEmail, temppassword);
   try {
     const response = await User.find({
       email: tempEmail,
