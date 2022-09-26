@@ -4,7 +4,6 @@ const LikeSchema = mongoose.Schema({
   feedid: {
     type: String,
     require: true,
-    unique: true,
     index: true,
   },
   userid: {
