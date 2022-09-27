@@ -49,7 +49,7 @@ router.put("/edititem/:feedid", async (req, res) => {
       tempItem,
       { new: true }
     );
-    res.status(200).json(saveItem);
+    res.status(201).json(saveItem);
   } catch (err) {
     res.status(400).json(err);
   }
