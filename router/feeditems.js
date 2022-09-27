@@ -31,9 +31,10 @@ router.get("/allitems", async (req, res) => {
     res.status(400).json(err);
   }
 });
-
-router.put("/edititem", async (req, res) => {
+//http://localhost:4000/feeditems/edititem/:feedid
+router.put("/edititem/:feedid", async (req, res) => {
   try {
+    const tempId = req.params.feedid;
     const tempItem = {
       feedid: req.body.feedid,
       name: req.body.name,
@@ -43,7 +44,7 @@ router.put("/edititem", async (req, res) => {
     };
     const saveItem = await Feeditem.findOneAndUpdate(
       {
-        userid: tempItem.userid,
+        feedid: tempId,
       },
       tempItem,
       { new: true }
