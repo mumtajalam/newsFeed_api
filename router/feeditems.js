@@ -1,4 +1,6 @@
+const { response } = require("express");
 const express = require("express");
+const Feeditems = require("../models/Feeditems");
 const Feeditem = require("../models/Feeditems");
 
 const router = express.Router();
@@ -25,6 +27,28 @@ router.get("/allitems", async (req, res) => {
   try {
     const response = await Feeditem.find();
     res.status(200).json(response);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.put("/edititems", async (req, res) => {
+  try {
+    const tempItem = {
+      feedid: req.body.feedid,
+      name: req.body.name,
+      userid: req.body.userid,
+      itemText: req.body.itemText,
+      itemImage: req.body.itemImage,
+    };
+    const saveItem = await Feeditem.findOneAndUpdate(
+      {
+        userid: tempItem.userid,
+      },
+      tempItem,
+      { new: true }
+    );
+    res.status(200).json(saveItem);
   } catch (err) {
     res.status(400).json(err);
   }
