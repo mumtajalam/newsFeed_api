@@ -32,7 +32,7 @@ router.get("/allitems", async (req, res) => {
   }
 });
 
-router.put("/edititems", async (req, res) => {
+router.put("/edititem", async (req, res) => {
   try {
     const tempItem = {
       feedid: req.body.feedid,
