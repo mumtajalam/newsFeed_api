@@ -1,6 +1,4 @@
-const { response } = require("express");
 const express = require("express");
-const Feeditems = require("../models/Feeditems");
 const Feeditem = require("../models/Feeditems");
 
 const router = express.Router();
