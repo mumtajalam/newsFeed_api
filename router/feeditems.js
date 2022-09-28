@@ -55,4 +55,15 @@ router.put("/edititem/:feedid", async (req, res) => {
   }
 });
 
+//http://localhost:4000/feeditems/deleteitem/:feedid
+router.delete("/deleteitem/:feedid", async (req, res) => {
+  try {
+    const deleteId = req.params.feedid;
+    const response = await Feeditem.deleteOne({ feedid: deleteId });
+    res.status(200).json(response);
+  } catch (err) {
+    req.status(400).json(err);
+  }
+});
+
 module.exports = router;
